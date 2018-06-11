@@ -13,9 +13,12 @@ declare global {
   }
   namespace JSXElements {}
 
+  interface HTMLElement {
+    componentOnReady?: () => Promise<this | null>;
+  }
+
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
-    componentOnReady(done: (ele?: this) => void): void;
 
     forceUpdate(): void;
   }
@@ -27,33 +30,134 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface MyComponent {
-      'first': string;
-      'last': string;
+    interface ExampleApp {
+
     }
   }
 
-  interface HTMLMyComponentElement extends StencilComponents.MyComponent, HTMLStencilElement {}
+  interface HTMLExampleAppElement extends StencilComponents.ExampleApp, HTMLStencilElement {}
 
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  var HTMLExampleAppElement: {
+    prototype: HTMLExampleAppElement;
+    new (): HTMLExampleAppElement;
   };
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'example-app': HTMLExampleAppElement;
   }
   interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'example-app': HTMLExampleAppElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      'my-component': JSXElements.MyComponentAttributes;
+      'example-app': JSXElements.ExampleAppAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
-      'first'?: string;
-      'last'?: string;
+    export interface ExampleAppAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface LiftBubble {
+
+    }
+  }
+
+  interface HTMLLiftBubbleElement extends StencilComponents.LiftBubble, HTMLStencilElement {}
+
+  var HTMLLiftBubbleElement: {
+    prototype: HTMLLiftBubbleElement;
+    new (): HTMLLiftBubbleElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lift-bubble': HTMLLiftBubbleElement;
+  }
+  interface ElementTagNameMap {
+    'lift-bubble': HTMLLiftBubbleElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lift-bubble': JSXElements.LiftBubbleAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LiftBubbleAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface PostListing {
+
+    }
+  }
+
+  interface HTMLPostListingElement extends StencilComponents.PostListing, HTMLStencilElement {}
+
+  var HTMLPostListingElement: {
+    prototype: HTMLPostListingElement;
+    new (): HTMLPostListingElement;
+  };
+  interface HTMLElementTagNameMap {
+    'post-listing': HTMLPostListingElement;
+  }
+  interface ElementTagNameMap {
+    'post-listing': HTMLPostListingElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'post-listing': JSXElements.PostListingAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface PostListingAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface StencilLift {
+      'deleteStateOnWindowLoad': boolean;
+      'initialState': any;
+      'mergeState': boolean;
+    }
+  }
+
+  interface HTMLStencilLiftElement extends StencilComponents.StencilLift, HTMLStencilElement {}
+
+  var HTMLStencilLiftElement: {
+    prototype: HTMLStencilLiftElement;
+    new (): HTMLStencilLiftElement;
+  };
+  interface HTMLElementTagNameMap {
+    'stencil-lift': HTMLStencilLiftElement;
+  }
+  interface ElementTagNameMap {
+    'stencil-lift': HTMLStencilLiftElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'stencil-lift': JSXElements.StencilLiftAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StencilLiftAttributes extends HTMLAttributes {
+      'deleteStateOnWindowLoad'?: boolean;
+      'initialState'?: any;
+      'mergeState'?: boolean;
     }
   }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "my-component",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
-  "module": "dist/esm/index.js",
+  "name": "@engineerapart/stencil-lift",
+  "version": "0.1.0",
+  "description": "Stencil Lift - An SSR-safe data loading, serialization, and rehydration utility for Stencil apps, powered by Redux",
+  "module": "dist/collection/index.js",
   "main": "dist/index.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
@@ -14,16 +14,21 @@
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
+    "start:ssr": "NODE_ENV=production stencil build --ssr && NODE_ENV=production node server.js",
     "test": "jest",
     "test.watch": "jest --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "redux": "^4.0.0"
+  },
   "devDependencies": {
-    "@stencil/core": "^0.9.1",
+    "@stencil/core": "^0.9.7",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
-    "@types/jest": "^21.1.1",
-    "jest": "^21.2.1"
+    "@types/jest": "^23.0.0",
+    "compression": "^1.7.2",
+    "express": "^4.16.3",
+    "jest": "^23.1.0"
   },
   "repository": {
     "type": "git",

@@ -1,12 +1,16 @@
 exports.config = {
-  namespace: 'mycomponent',
+  enableCache: false,
+  namespace: 'stencil-lift',
+  flags: { prerender: true },
   outputTargets:[
-    { 
-      type: 'dist' 
+    {
+      type: 'dist'
     },
-    { 
+    {
       type: 'www',
-      serviceWorker: false
+      serviceWorker: false,
+      console: console,
+      logLevel: 'debug'
     }
   ]
 };

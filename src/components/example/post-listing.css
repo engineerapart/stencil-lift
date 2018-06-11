@@ -1,0 +1,24 @@
+post-listing .post-list {
+  width: 100%;
+}
+
+post-listing .post-list .post {
+  border: 1px solid rgba(0, 0, 0, .35);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 10px;
+}
+
+post-listing .post-list .post h3 {
+  background-color: rgba(25,25,125,.35);
+  margin-top: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  text-transform: capitalize;
+}
+
+post-listing .post-list .post p {
+  padding-left: 10px;
+}

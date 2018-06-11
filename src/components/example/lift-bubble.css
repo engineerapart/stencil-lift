@@ -1,0 +1,26 @@
+lift-bubble {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+lift-bubble .bubble {
+  border: 1px solid rgba(0, 0, 0, .35);
+  border-radius: 35px;
+}
+
+lift-bubble .bubble h3 {
+  background-color: rgba(25,25,125,.35);
+  margin-top: 0;
+  margin-bottom: 8px;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  padding: 5px 16px;
+  text-align: center;
+}
+
+lift-bubble .bubble .bubble-text {
+  padding: 0 16px 10px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+}

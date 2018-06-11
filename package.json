@@ -1,0 +1,56 @@
+{
+  "name": "@engineerapart/stencil-lift",
+  "version": "0.1.0",
+  "description": "Stencil Lift - An SSR-safe data loading, serialization, and rehydration utility for Stencil apps, powered by Redux",
+  "module": "dist/collection/index.js",
+  "main": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "serve": "stencil-dev-server",
+    "start": "npm run dev",
+    "start:ssr": "NODE_ENV=production stencil build --ssr && NODE_ENV=production node server.js",
+    "test": "jest",
+    "test.watch": "jest --watch"
+  },
+  "dependencies": {
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@stencil/core": "^0.9.7",
+    "@stencil/dev-server": "latest",
+    "@stencil/utils": "latest",
+    "@types/jest": "^23.0.0",
+    "compression": "^1.7.2",
+    "express": "^4.16.3",
+    "jest": "^23.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/stencil-component-starter.git"
+  },
+  "author": "Ionic Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ionic-team/stencil"
+  },
+  "homepage": "https://github.com/ionic-team/stencil",
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
+  }
+}

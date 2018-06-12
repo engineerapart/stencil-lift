@@ -130,7 +130,7 @@ declare global {
 
   namespace StencilComponents {
     interface StencilLift {
-      'deleteStateOnWindowLoad': boolean;
+      'deleteOnClientLoad': boolean;
       'initialState': any;
       'mergeState': boolean;
     }
@@ -155,7 +155,7 @@ declare global {
   }
   namespace JSXElements {
     export interface StencilLiftAttributes extends HTMLAttributes {
-      'deleteStateOnWindowLoad'?: boolean;
+      'deleteOnClientLoad'?: boolean;
       'initialState'?: any;
       'mergeState'?: boolean;
     }

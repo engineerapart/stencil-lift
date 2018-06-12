@@ -2,7 +2,9 @@ exports.config = {
   enableCache: false,
   namespace: 'stencil-lift',
   flags: { prerender: true },
-  logLevel: 'debug',
+  buildEs5: true,
+  buildStats: true,
+  logLevel: 'debug', // do not turn this off until the Stencil bug is fixed.
   outputTargets:[
     {
       type: 'dist'

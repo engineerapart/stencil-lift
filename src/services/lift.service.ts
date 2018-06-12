@@ -29,7 +29,7 @@ const combinedReducers = combineReducers({ lift_state: liftReducer });
 export interface LiftInitializeOptions {
   win: Window;
   isServer: boolean;
-  deleteStateOnWindowLoad: boolean;
+  deleteOnClientLoad: boolean;
   initialState: any;
   mergeState: boolean;
 }
@@ -57,11 +57,15 @@ export class LiftService {
   }
 
   initialize(options: LiftInitializeOptions) {
-    const { isServer, deleteStateOnWindowLoad, initialState, mergeState, win } = options;
+    const { isServer, deleteOnClientLoad, initialState, mergeState, win } = options;
     this._isServer = isServer;
 
     let preloadedState = (<any>win)[__LIFT_STATE_KEY] || {};
-    deleteStateOnWindowLoad && (delete (<any>win)[__LIFT_STATE_KEY]);
+    if (deleteOnClientLoad && !this.isServer && document) {
+      const elm = document.querySelector(`#${__LIFT_STATE_KEY}`);
+      if (elm) { elm.remove(); } // Stencil polyfills this so it is ok.
+      delete (<any>win)[__LIFT_STATE_KEY];
+    }
 
     if (initialState) {
       preloadedState = mergeState ? { ...preloadedState, ...initialState } : initialState || {};

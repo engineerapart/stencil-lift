@@ -21,7 +21,7 @@ export class ExampleApp {
 
   render() {
     const liftProps = {
-      deleteStateOnWindowLoad: false,
+      deleteOnClientLoad: false,
       initialState,
       mergeState: true,
     };

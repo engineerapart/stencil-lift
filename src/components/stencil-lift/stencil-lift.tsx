@@ -6,7 +6,7 @@ import ClientLiftService, { LiftService, __LIFT_STATE_KEY } from '../../services
 })
 export class StencilLiftComponent {
 
-  @Prop() deleteStateOnWindowLoad = false;
+  @Prop() deleteOnClientLoad = false;
   @Prop() initialState: any = null;
   @Prop() mergeState = false;
 
@@ -26,7 +26,7 @@ export class StencilLiftComponent {
     this._LiftService.initialize({
       win: this.window,
       isServer: this.isServer,
-      deleteStateOnWindowLoad: this.deleteStateOnWindowLoad,
+      deleteOnClientLoad: this.deleteOnClientLoad,
       initialState: this.initialState,
       mergeState: this.mergeState,
     });

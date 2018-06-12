@@ -4,7 +4,7 @@
   "description": "Stencil Lift - An SSR-safe data loading, serialization, and rehydration utility for Stencil apps, powered by Redux",
   "module": "dist/collection/index.js",
   "main": "dist/index.js",
-  "types": "dist/types/components.d.ts",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"

@@ -108,26 +108,12 @@ export class MyComponent {
 That's it. That is literally it. You thought that was going to be harder.
 
 
-## `stencil-lift` Properties
-
-| Prop	| Description  	|
-|---	|---	|
-| initialState  	| The initial data you want pushed to the store. The object's high-level keys correspond to the `key` argument used in the `Lift` decorator.  	|
-| mergeState  	| Merge your initialState argument with loaded data, or force it to be used wholly.  	|
-| deleteOnClientLoad  	| For sensitive data, you may not wish it to remain available to the Window context. This will cause it (and the corresponding JS) to be deleted from the window.  	|
-
-## `Lift` decorator properties
-
-| Prop  	| Description  	|
-|---	|---	|
-| key  	| The redux state slice under which this component's data will be stored. You can receive data from ANY state slice - not just the one you generate.  	|
-
-
 ### Receiving data from the store without `getInitialProps`
 
 You remember that data key you put in the `Lift({key})` decorator? You can receive any data you want. No really. Let's say you have a loader that executes at the top level of your app on the server. You can push this data directly into `stencil-lift` and receive it in any component that wants it.
 
 _This also means you can load data in one component and display it in any other component_.
+
 
 #### Adding data to the `<stencil-lift>` top-level component:
 
@@ -159,6 +145,7 @@ export class MyApp {
 }
 ```
 
+
 #### Receive the data wherever you want:
 
 Same as the original example. No really.
@@ -180,8 +167,36 @@ export class MyComponent {
 
 ```
 
+
+# Other Uses
+If it hadn't already occurred to you, you can also use Stencil Lift on the client without any data loading capabilities. Say for example you have a JSON data blob that you have in your bundle; you can inject that directly into `<stencil-lift>` to disburse it to the component tree. This allows you to have a single entry point for your data and the components simply declare what they need, instead of configuring each component with its data.
+
+# Does this work with prerendering?
+Yes. If you find any problems with it don't hesitate to open an issue :)
+
+
+
+# Documentation
+
+## `stencil-lift` Properties
+
+| Prop	| Description  	|
+|---	|---	|
+| initialState  	| The initial data you want pushed to the store. The object's high-level keys correspond to the `key` argument used in the `Lift` decorator.  	|
+| mergeState  	| Merge your initialState argument with loaded data, or force it to be used wholly.  	|
+| deleteOnClientLoad  	| For sensitive data, you may not wish it to remain available to the Window context. This will cause it (and the corresponding JS) to be deleted from the window.  	|
+
+## `Lift` decorator properties
+
+| Prop  	| Description  	|
+|---	|---	|
+| key  	| The redux state slice under which this component's data will be stored. You can receive data from ANY state slice - not just the one you generate.  	|
+
+
+
 # Example
 There is a working example of all of these concepts in the `src/components/example` folder.
+
 
 # TODO List:
 - [ ] Wire up the components to receive data changes from the redux store on the client. This is easy to do and will be in the next version.
@@ -201,8 +216,7 @@ npm i && npm start (or npm start:ssr)
 yarn && yarn start (or yarn start:ssr)
 ```
 
-
-# IMPORTANT NOTE
+### IMPORTANT NOTE
 For now, there is a bug in the Stencil compiler that causes the lift component to lose its script tag. Make sure you do not remove the line `logLevel: 'debug'` from the `stencil.config.js` file. Specifically the bug is actually in `uglify-es` when using `beautify:false` and will likely take some time to track down. The ONLY effect this has is that the built packages retain their whitespace - but since gzip compression largely takes care of this it is not a big issue.
 
 You can disable `logLevel: 'debug'` when running the server if you want, but it must be enabled for the build step.

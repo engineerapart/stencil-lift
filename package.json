@@ -1,6 +1,6 @@
 {
   "name": "@engineerapart/stencil-lift",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Stencil Lift - An SSR-safe data loading, serialization, and rehydration utility for Stencil apps, powered by Redux",
   "module": "dist/collection/index.js",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
     "start:ssr": "npm run build && NODE_ENV=production node server.js",
     "test": "jest",
     "test.watch": "jest --watch",
-    "publish": "yarn run build"
+    "deploy": "npm run build && yarn publish --access public --patch"
   },
   "dependencies": {
     "redux": "^4.0.0"

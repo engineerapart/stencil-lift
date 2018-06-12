@@ -64,12 +64,16 @@ export class LiftService {
     deleteStateOnWindowLoad && (delete (<any>win)[__LIFT_STATE_KEY]);
 
     if (initialState) {
-      preloadedState = mergeState ? { ...preloadedState, ...initialState } : initialState;
+      preloadedState = mergeState ? { ...preloadedState, ...initialState } : initialState || {};
     }
-    // console.log('Preloaded state: ', preloadedState);
+
     // const devToolsEnhancer = (<any>win).__REDUX_DEVTOOLS_EXTENSION__ && (<any>win).__REDUX_DEVTOOLS_EXTENSION__();
     const composeEnhancers = isServer ? compose : ((<any>window).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose);
-    this._store = createStore(combinedReducers, { lift_state: preloadedState }, composeEnhancers(applyMiddleware()));
+    this._store = createStore(
+      combinedReducers,
+      { lift_state: preloadedState.lift_state || preloadedState },
+      composeEnhancers(applyMiddleware())
+    );
   }
 
   get(key: string) {
@@ -83,7 +87,6 @@ export class LiftService {
 
   export() {
     const state = this._store.getState();
-    // console.log('Exporting state: ', state);
     return state;
   }
 

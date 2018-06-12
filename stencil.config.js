@@ -2,6 +2,7 @@ exports.config = {
   enableCache: false,
   namespace: 'stencil-lift',
   flags: { prerender: true },
+  logLevel: 'debug',
   outputTargets:[
     {
       type: 'dist'

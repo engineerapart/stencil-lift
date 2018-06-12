@@ -61,7 +61,7 @@ export class MyApp {
 }
 ```
 
-2. Wrap a component you want to connect in the `Lift` decorator (or export your class wrapped with Lift(YourComponent) as a Higher Order Component):
+2. Wrap a component you want to connect in the `Lift` decorator (or export your class wrapped with Lift({key: 'blah'})(YourComponent) as a Higher Order Component):
 
 ```js
 import { Lift } from '@engineerapart/stencil-lift/';

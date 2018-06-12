@@ -15,9 +15,11 @@
     "serve": "stencil-dev-server",
     "start": "npm run dev",
     "start:ssr": "npm run build && NODE_ENV=production node server.js",
-    "test": "jest",
+    "test": "npm run lint && jest",
     "test.watch": "jest --watch",
-    "deploy": "npm run build && yarn publish --access public --patch"
+    "lint": "tslint --project ./tsconfig.json",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "deploy": "npm run build && npm run changelog && yarn publish --access public --patch"
   },
   "dependencies": {
     "redux": "^4.0.0"
@@ -28,8 +30,11 @@
     "@stencil/utils": "latest",
     "@types/jest": "^23.0.0",
     "compression": "^1.7.2",
+    "conventional-changelog-cli": "^2.0.1",
     "express": "^4.16.3",
-    "jest": "^23.1.0"
+    "jest": "^23.1.0",
+    "tslint": "^5.10.0",
+    "tslint-ionic-rules": "^0.0.16"
   },
   "repository": {
     "type": "git",

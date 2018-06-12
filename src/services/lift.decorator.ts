@@ -9,7 +9,7 @@ export function Lift(options: LiftComponentOptions): ClassDecorator {
   return function LiftDecorator(constructor: Function) {
     const original = constructor.prototype.componentWillLoad;
 
-    constructor.prototype.componentWillLoad = async function () {
+    constructor.prototype.componentWillLoad = async function() {
       // On client, use the singleton export.
       let LiftInstance: LiftService = ClientLiftService;
       // On server, we need an instance per request so that requests do not share state.

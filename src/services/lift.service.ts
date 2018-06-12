@@ -60,11 +60,11 @@ export class LiftService {
     const { isServer, deleteOnClientLoad, initialState, mergeState, win } = options;
     this._isServer = isServer;
 
-    let preloadedState = (<any>win)[__LIFT_STATE_KEY] || {};
+    let preloadedState = (win as any)[__LIFT_STATE_KEY] || {};
     if (deleteOnClientLoad && !this.isServer && document) {
       const elm = document.querySelector(`#${__LIFT_STATE_KEY}`);
       if (elm) { elm.remove(); } // Stencil polyfills this so it is ok.
-      delete (<any>win)[__LIFT_STATE_KEY];
+      delete (win as any)[__LIFT_STATE_KEY];
     }
 
     if (initialState) {
@@ -72,7 +72,7 @@ export class LiftService {
     }
 
     // const devToolsEnhancer = (<any>win).__REDUX_DEVTOOLS_EXTENSION__ && (<any>win).__REDUX_DEVTOOLS_EXTENSION__();
-    const composeEnhancers = isServer ? compose : ((<any>window).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose);
+    const composeEnhancers = isServer ? compose : ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose);
     this._store = createStore(
       combinedReducers,
       { lift_state: preloadedState.lift_state || preloadedState },

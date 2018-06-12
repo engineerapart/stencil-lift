@@ -2,19 +2,23 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
-    "declaration": false,
+    "declaration": true,
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "jsxFactory": "h",
     "lib": [
       "dom",
-      "es2015"
+      "es2017"
     ],
+    "module": "esnext",
     "moduleResolution": "node",
-    "module": "es2015",
-    "target": "es2015",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "jsx": "react",
-    "jsxFactory": "h"
+    "pretty": true,
+    "target": "es2017"
   },
   "include": [
     "src",

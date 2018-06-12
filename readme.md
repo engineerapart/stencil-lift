@@ -72,6 +72,9 @@ export class MyComponent {
 
 }
 
+// Alternatively:
+export default Lift({key: 'YourDescriptiveKey'})(YourComponent);
+
 ```
 
 3. If you want to load data in that component on the server, and receive it on the client, add a `getInitialProps` function to your component (yes, inspired by [Next.js](https://github.com/zeit/next.js)) that returns the data in the same shape you want to receive it:

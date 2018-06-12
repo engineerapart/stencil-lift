@@ -16,7 +16,8 @@
     "start": "npm run dev",
     "start:ssr": "npm run build && NODE_ENV=production node server.js",
     "test": "jest",
-    "test.watch": "jest --watch"
+    "test.watch": "jest --watch",
+    "publish": "yarn run build && npm publish --access public"
   },
   "dependencies": {
     "redux": "^4.0.0"

@@ -1,13 +1,13 @@
 import { TestWindow } from '@stencil/core/testing';
 import { StencilLiftComponent } from './stencil-lift';
 
-describe('my-component', () => {
+describe('stencil-lift', () => {
   it('should build', () => {
     expect(new StencilLiftComponent()).toBeTruthy();
   });
 
   describe('rendering', () => {
-    let element: HTMLMyComponentElement;
+    let element: HTMLStencilLiftElement;
     let testWindow: TestWindow;
     beforeEach(async () => {
       testWindow = new TestWindow();

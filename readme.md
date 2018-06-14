@@ -89,6 +89,7 @@ import { Lift } from '@engineerapart/stencil-lift/';
 @Component(...)
 export class MyComponent {
 
+  // You can use @Prop() here too.
   @State() someKey: any; // if you know the type, put the type!
 
   async getInitialProps({ Lift, isServer }) => {
@@ -109,6 +110,7 @@ export class MyComponent {
 ```
 
 That's it. That is literally it. You thought that was going to be harder.
+
 
 
 ### Receiving data from the store without `getInitialProps`
@@ -175,10 +177,10 @@ export class MyComponent {
 If it hadn't already occurred to you, you can also use Stencil Lift on the client without any data loading capabilities. Say for example you have a JSON data blob that you have in your bundle; you can inject that directly into `<stencil-lift>` to disburse it to the component tree. This allows you to have a single entry point for your data and the components simply declare what they need, instead of configuring each component with its data.
 
 # Does this work with prerendering?
-Yes. If you find any problems with it don't hesitate to open an issue :)
+Yes, although, I think this needs work. If you find any issues don't hesitate to file an issue.
 
 # Does this work client side?
-Right now, it only works if you SSR and send your SSR'd page to the client. Tne next release will allow you to use this on the client as well (e.g. as a pure client app).
+Right now, it only works if you use SSR and send your SSR'd page to the client. The next release will allow you to use this on the client as well (e.g. as a pure client app).
 
 
 # API
